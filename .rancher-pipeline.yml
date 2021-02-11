@@ -1,0 +1,25 @@
+stages:
+- name: Build Container
+  steps:
+  - publishImageConfig:
+        dockerfilePath: ./docker/Dockerfile
+        buildContext: .
+        pushRemote: true
+        registry: devmagellan/myblog
+   when:
+     branch:
+        include:
+        - master
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+        path: ./k8s/deployment.yml
+- name: Build something
+  steps:
+  - runScriptConfig:
+        image: busybox
+        shellScript: echo ${FIRST_KEY} && echo ${SECOND_KEY}
+    env:
+        FIRST_KEY : Hi
+        SECOND_KEY: Monkeys
+timeout: 60        
