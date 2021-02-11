@@ -5,8 +5,9 @@ stages:
         dockerfilePath: ./docker/Dockerfile
         buildContext: .
         pushRemote: true
-        registry: devmagellan/myblog
-   when:
+        registry: dockerhub
+        image_name: devmagellan/myblog
+  when:
      branch:
         include:
         - master
