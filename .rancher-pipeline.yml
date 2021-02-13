@@ -7,8 +7,9 @@ stages:
       pushRemote: true
       tag: devmagellan/ranchertest:latest
       registry: index.docker.io
-      username: ${{ USERNAME }}
-      password: ${{ PASSWORD }}
+      with:
+        username: 'devmagellan'
+        password: 'Sunimedia@1l'
   when:
     branch:
       include:
