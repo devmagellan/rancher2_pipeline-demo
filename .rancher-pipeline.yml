@@ -1,9 +1,6 @@
 stages:
 - name: Build Container
   steps:
-  envFrom:
-  - username: 'devmagellan'
-    password: 'Sunimedia@1l'
   - publishImageConfig:
       dockerfilePath: ./docker/Dockerfile
       buildContext: .
