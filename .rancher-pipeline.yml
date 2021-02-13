@@ -5,7 +5,8 @@ stages:
       dockerfilePath: ./docker/Dockerfile
       buildContext: .
       pushRemote: true
-      registry: dockerhub
+      tag: devmagellan/ranchertes
+      registry: index.docker.io
   when:
     branch:
       include:
